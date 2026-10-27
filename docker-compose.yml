@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: rag_recap_psql
+    environment:
+      POSTGRES_USER: bstorm
+      POSTGRES_PASSWORD: "1234"
+      POSTGRES_DB: rag_recap
+    ports:
+      - 5439:5432
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: rag_recap_qdrant
+    environment:
+      QDRANT__SERVICE__API_KEY: "1234"
+    ports:
+      - 6339:6333
+    volumes:
+      - qdrant_data:/qdrant/storage
+
+volumes:
+  pg_data:
+  qdrant_data:
