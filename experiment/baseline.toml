@@ -1,0 +1,8 @@
+name = 'bge-m3-hybrid-512-0'
+
+[chunking]
+type = 'hybrid'
+max_tokens = 512
+
+[embedding]
+model = 'bge-m3'
