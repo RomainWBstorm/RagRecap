@@ -8,6 +8,7 @@ class Settings(BaseSettings):
 
     postgres_url: str
     qdrant_api_key: str
+    vllm_embedder_api_key: str = 'no-sk'
 
     # Servers
     ip_address:str = 'localhost'
@@ -20,8 +21,12 @@ class Settings(BaseSettings):
     export_path: Path = Path('/home/bstorm/rag_recap/data/export')
     docling_models_path: Path = Path('/home/bstorm/models/docling')
 
+    # workload
+    embedding_batch_size: int = 1024
+
     # runner config
     runner_config_path: Path = Path('experiment/baseline.toml') 
+
 
 class OcrSettings(BaseSettings):
     ocr_device: str = 'cpu'
